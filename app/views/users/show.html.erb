@@ -1,0 +1,10 @@
+<h2>プロフィール紹介</h2>
+
+<div class="wrapper">
+<p class="p-card">名前: <%= @user.name %></p>
+<p class="p-card">年齢: <%= @user.age %>歳</p>
+<p class="p-card">性別: <%= @user.gender %></p>
+<%= link_to "編集", edit_user_path(@user), class: "action-btn" %>
+</div>
+
+<%= link_to "戻る", root_path, class:"back-link"%>

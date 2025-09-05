@@ -4,9 +4,28 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def new
+    @user = User.new
+  end
+
 
   def show
     @user = User.find(params[:id])
+    @users = User.all
+  end
+
+  def edit
+    @user = User.find(params[:id])
+    
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to @user, notice: "ユーザー情報を更新しました。"
+    else
+      render :show
+    end
   end
 
   def create
@@ -23,6 +42,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     redirect_to users_path, notice: "ユーザー情報を削除しました。"
+  end
+  
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :age, :gender)
   end
 
 

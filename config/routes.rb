@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'reservations#index'
 
 
-  resources :users, only: [:index, :show, :create, :destroy]
+  resources :users, only: [:index, :show, :create, :destroy, :edit, :new, :update]
   resources :shops, only: [:index]
   resources :reservations, only: [:index, :create, :destroy]
 
