@@ -1,0 +1,37 @@
+<div class="header-wrapper">
+
+<div class="h-title">
+  <h1>食べ歩きサイト</h1>
+  <p>こちらは食べ歩きサイトです。気になるお店を見つけて、予約をしましょう！</p>
+</div>
+
+<nav>
+  <ul>
+    <li><%= link_to "ホーム",root_path %></li>
+    <li><%= link_to "ログイン", new_user_session_path %></li>
+    <li><%= link_to "新規登録", new_user_registration_path %></li>
+    <% if user_signed_in? %>
+    <p>ようこそ、<%= current_user.name %>さん！</p>
+    <li><%= link_to "マイページ", user_path(current_user) %></li>
+    <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+  </ul>
+</nav>
+<% end %>
+
+ 
+</div>
+
+
+
+<h2>店舗一覧</h2>
+
+<div class="search-wrapper">
+<%= form_with url: shops_path, method: :get, local: true do |f| %>
+  <div class="field">
+    <%= f.label :search, "検索する" %>
+    <%= f.text_field :search, value: params[:search] %>
+     <%= f.submit "検索" %>
+  </div>
+  
+<% end %>
+</div>
