@@ -1,0 +1,26 @@
+<h2>プロフィール編集</h2>
+
+<div class="wrapper">
+
+<%= form_with model:@user, local: true do |f| %>
+  <div class="p-card">
+    <%= f.label :name, "名前" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="p-card">
+    <%= f.label :age, "年齢" %>
+    <%= f.number_field :age, min: 0 ,max: 150 %>
+  </div>
+
+  <div class="p-card">
+    <%= f.label :gender, "性別" %>
+    <%= f.select :gender, ["男","女","その他"],include_blank:"選択してください。" %>
+  </div>
+
+  <%= f.submit "登録", class:"action-btn" %>
+<% end %>
+
+</div>
+
+<%= link_to "戻る", root_path, class:"back-link"%>
