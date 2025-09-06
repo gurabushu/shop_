@@ -1,0 +1,32 @@
+<%= form_with model:@shop, local:true do |f| %>
+  <div class="wrapper">
+    <p class="p-card">店舗名</p>
+    <%= f.text_field :title, class: "text-field" %>
+  </div>
+
+  <div class="wrapper">
+    <p class="p-card">店舗説明</p>
+    <%= f.text_field :description, class: "text-field" %>
+  </div>
+
+
+  <div class="wrapper">
+    <p class="p-card">カテゴリー</p>
+    <%= f.select :category, ["和食", "洋食", "中華", "その他"], {}, class: "text-field" %>
+  </div>
+
+  <div class="wrapper">
+    <p class="p-card">開店時間：閉店時間</p>
+    <%= f.datetime_select :open_time, { include_blank: true }, class: "time-field" %>
+    <%= f.datetime_select :close_time, { include_blank: true }, class: "time-field" %>
+  </div>  
+
+  <div class="action-wrapper">
+    <%= f.submit "登録", class: "action-btn" %>
+  </div>
+
+    
+
+<% end %>
+
+<%= link_to "戻る", root_path, class:"back-link"%>
