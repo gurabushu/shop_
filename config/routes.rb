@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:index, :show, :create, :destroy, :edit, :new, :update]
-  resources :shops, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :shops, only: [:index, :new, :create, :edit, :update, :destroy, :show]
   resources :reservations, only: [:index, :create, :destroy]
 
   

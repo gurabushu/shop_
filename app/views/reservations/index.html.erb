@@ -37,3 +37,19 @@
   
 <% end %>
 </div>
+
+
+<% if @shops.empty? %>
+  <p>現在、登録されている店舗はありません。</p>
+<% end %> 
+<div class="shops-wrapper">
+  <%= @shops.each do |shop| %>
+    <div class="shop-card">
+      <h3><%= shop.title %></h3>
+      <p><%= shop.description %></p>
+      <p>カテゴリー：<%= shop.category %></p>
+      <p>営業時間：<%= shop.open_time.strftime("%H:%M") if shop.open_time %> 〜 <%= shop.close_time.strftime("%H:%M") if shop.close_time %></p>
+      <%= link_to "詳細・予約", shop_path(shop), class: "action-btn" %>
+    </div>
+  <% end %>
+</div>  

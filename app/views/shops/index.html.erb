@@ -1,0 +1,21 @@
+<h2>登録店舗一覧</h2>
+
+<p class="count-shop">登録した店舗数は<%= @shops.count %>件です。</p>
+
+<% if @shops.empty? %>
+  <p>現在、登録されている店舗はありません</p>
+<% else %>
+  <ul class="shops-wrapper">
+    <% @shops.each do |shop| %>
+      <li class="shop-item">
+        <p><%= link_to shop.title, shop_path(shop) %></p>
+        <p><%= shop.description %></p>
+        <p>カテゴリー：<%= shop.category %></p>
+        <p>営業時間：<%= shop.open_time.strftime("%H:%M") if shop.open_time %> 〜 <%= shop.close_time.strftime("%H:%M") if shop.close_time %></p>
+        <%= link_to "編集", edit_shop_path(shop), class: "shop-btn" %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to "戻る", root_path, class: "back-link" %>
