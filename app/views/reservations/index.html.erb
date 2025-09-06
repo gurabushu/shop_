@@ -40,10 +40,10 @@
 
 
 <% if @shops.empty? %>
-  <p>現在、登録されている店舗はありません。</p>
+  <p class="count-shop">現在、登録されている店舗はありません。</p>
 <% end %> 
 <div class="shops-wrapper">
-  <%= @shops.each do |shop| %>
+  <% @shops.each do |shop| %>
     <div class="shop-card">
       <h3><%= shop.title %></h3>
       <p><%= shop.description %></p>
