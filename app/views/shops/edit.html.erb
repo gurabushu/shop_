@@ -1,4 +1,4 @@
-<%= form_with model:@shop, local:true do |f| %>
+<%= form_with model: @shop, local:true do |f| %>
   <div class="wrapper">
     <p class="p-card">店舗名</p>
     <%= f.text_field :title, class: "text-field" %>
@@ -7,8 +7,7 @@
   <div class="wrapper">
     <p class="p-card">店舗説明</p>
     <%= f.text_field :description, class: "text-field" %>
-  </div>
-
+  </div>     
 
   <div class="wrapper">
     <p class="p-card">カテゴリー</p>
@@ -22,11 +21,14 @@
   </div>  
 
   <div class="action-wrapper">
-    <%= f.submit "登録", class: "action-btn" %>
+    <%= f.submit "更新", class: "action-btn" %>
   </div>
-
-    
-
 <% end %>
 
-<%= link_to "戻る", root_path, class:"back-link"%>
+  <div class="destroy-wrapper">
+    <%= button_to "削除",shop_path(@shop), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "destroy-btn" %>
+  </div>
+
+
+
+<%= link_to "戻る",shops_path, class:"back-link"%>
