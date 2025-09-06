@@ -8,5 +8,10 @@ Rails.application.routes.draw do
   resources :shops, only: [:index, :new, :create, :edit, :update, :destroy, :show]
   resources :reservations, only: [:index, :create, :destroy]
 
-  
+  resources :shops do
+    resources :reservations, only: [:index, :show, :create, :destroy, :new]
+
+  end
+
+
 end
